@@ -4,6 +4,7 @@ import contract.IModel;
 import entity.Blocks.*;
 import entity.Direction;
 import entity.GameProperties;
+import entity.Road.*;
 
 import java.awt.*;
 import java.util.Observable;
@@ -109,6 +110,45 @@ public class Level extends Observable implements IModel {
             switch (s.charAt(i))
             {
 
+                case 'a':
+                    map[x][y] = new Intersection(x,y);
+                    break;
+
+                case 'b':
+                    map[x][y] = new Horizontal(x,y);
+                    break;
+
+                case 'c':
+                    map[x][y] = new Vertical(x,y);
+                    break;
+
+                case 'd':
+                    map[x][y] = new Vide(x,y);
+                    break;
+                case'e': // bas vers gauche
+                    map[x][y] = new Tourner(x,y,0);
+                    break;
+                case'f': // gauche vers haut
+                    map[x][y] = new Tourner(x,y,1);
+                    break;
+                case'g': // haut vers droite
+                    map[x][y] = new Tourner(x,y,2);
+                    break;
+                case'h': // droite vers bas
+                    map[x][y] = new Tourner(x,y,3);
+                    break;
+                case'i': // gauche vers haut
+                    map[x][y] = new IntersectionBizarre(x,y,0);
+                    break;
+                case'j': // gauche vers haut
+                    map[x][y] = new IntersectionBizarre(x,y,1);
+                    break;
+                case'k': // gauche vers haut
+                    map[x][y] = new IntersectionBizarre(x,y,2);
+                    break;
+                case'l': // gauche vers haut
+                    map[x][y] = new IntersectionBizarre(x,y,3);
+                    break;
                 case 'W':
                     map[x][y] = new Wall(x, y);
                     break;
